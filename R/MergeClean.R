@@ -1,6 +1,7 @@
 # Merge and Clean geocodes for womens march
 # Prepare data for shiny app
 
+library(shiny)
 
 march <- read.csv("data/MarchData(clean).csv", stringsAsFactors = F)
 lonlat <- readRDS("data/MarchLocations.rds")
@@ -35,10 +36,10 @@ for(i in 1:nrow(march)){
 }
 
 
-march$LowPtSize <-   (log(as.numeric(march$EstimateLow )) * 1)
+march$LowPtSize <-   (log(as.numeric(march$EstimateLow )) * 1.7)
 march$LowPtSize[march$LowPtSize < 3] <- 3
 
-march$HighPtSize <-   (log(as.numeric(march$EstimateHigh ))* 1)
+march$HighPtSize <-   (log(as.numeric(march$EstimateHigh ))* 1.7)
 march$HighPtSize[march$HighPtSize < 3] <- 3
 
 for(i in c("EstimateLow","EstimateHigh","Source1","Source2","Source3",

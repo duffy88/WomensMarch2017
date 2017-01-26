@@ -48,4 +48,27 @@ server <- function(input, output, session) {
     
   })
   
+  
+  # Add highlighting around point being clicked
+  observe({
+    click <- input$map_marker_click
+    data <- march[ !is.na(march$lon) & !is.na(march$lat),]
+    
+    if(!is.null(click)  ){
+      # Identify point clicked
+      hl <- subset(data, FullLocation==click$id)
+      # Remove previous highlighting
+      lp <- leafletProxy("map", data = hl) %>% 
+        removeMarker( layerId = "add") 
+      
+      # Add new highlighting only if there is a point to add
+      if(nrow(hl) >0){
+        lp %>% addCircleMarkers(radius = ~LowPtSize,  stroke = TRUE, color = "pink",weight=4,
+                                fillOpacity = 0,opacity=1, layerId = "add")
+      }
+      
+    }
+    
+  })
+  
 }

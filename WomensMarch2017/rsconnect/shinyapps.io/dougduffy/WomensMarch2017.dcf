@@ -2,8 +2,8 @@ name: WomensMarch2017
 account: dougduffy
 server: shinyapps.io
 appId: 152706
-bundleId: 688287
+bundleId: 690120
 url: https://dougduffy.shinyapps.io/WomensMarch2017/
-when: 1485188966.10216
+when: 1485303181.25849
 asMultiple: FALSE
 asStatic: FALSE

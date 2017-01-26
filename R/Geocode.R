@@ -22,8 +22,6 @@ for( i in 1:nrow(march)){
   }
   
   if(i ==nrow(march)){
-    temp2[ is.na(temp2[,2]),"lon"] <- NA
-    temp2[ is.na(temp2[,2]),"lat"] <- NA
     saveRDS(temp2, "data/MarchLocations.rds")
     
   }

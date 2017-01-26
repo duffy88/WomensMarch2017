@@ -14,6 +14,12 @@ library(leaflet)
 
 shinyUI(fluidPage(
   
+  # Add a little CSS to modify floater aethetics
+  tags$head(tags$style("
+                       .floater { background-color: rgb(255,255,255); padding: 8px; 
+                       border-radius: 6px; box-shadow: 0 0 15px rgba(0,0,0,0.2); }
+                       
+                       ")),
   # Leaflet Map output
   leafletOutput("map", width =1000, height = 600),
   absolutePanel(top = 532, left = 815, width = 250,
@@ -30,7 +36,18 @@ shinyUI(fluidPage(
                            style ="text-decoration:none",target = "_blank",
                            "Pressman & Chenoweth")
                 )
-  )
+  ),
+  absolutePanel(left = 25, top = 475, width = 135, class = "floater", style="opacity:0.7",
+                div(style="margin:0",
+                    div(style = "text-align:center;margin:0",
+                        h5(style = "text-align:center;margin:0",
+                           strong("Attendance Est. (Low)"))),
+                        div(style="",
+                            img(src = "PtSizeLegend.jpg", width = "124px", height= "68px"))
+                        
+                        
+                    )    
+                )
   
 )
 )

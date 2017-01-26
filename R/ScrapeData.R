@@ -8,10 +8,12 @@ url <- "https://docs.google.com/spreadsheets/d/1xa0iLqYKz8x9Yc_rfhtmSOJQ2EGgeUVj
 
 march <- gsheet2tbl(url)
 
+march <- march[ 7:nrow(march),1:10]
+
 names(march) <- c("Place","State","Country","EstimateLow","EstimateHigh","Estimate3",
                   "DiffDate","Source1","Source2","Source3")
 
-march <- march[ 5:nrow(march),]
+
 march <- march[ march$Place!="\n", ]
 
 
